@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="Biblioteca_JPA_OBJECTDB" name="Biblioteca_JPA_OBJECTDB" framework="JPA" ormUnit="Biblioteca_JPA_OBJECTDB:Biblioteca_JPA_OBJECTDB" />
+    </persistence-units>
+  </component>
+</project>

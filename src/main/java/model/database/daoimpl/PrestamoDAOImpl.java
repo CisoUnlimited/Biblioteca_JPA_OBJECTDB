@@ -3,13 +3,13 @@ package model.database.daoimpl;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+import javax.persistence.metamodel.EntityType;
+
 import model.database.dao.PrestamoDAO;
 import model.dto.Libro;
 import model.dto.Prestamo;
 import model.dto.Usuario;
-import utils.JPAUtil;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,7 +133,6 @@ public class PrestamoDAOImpl implements PrestamoDAO {
     @Override
     public int getIdPrestamo(Libro libro) {
         try {
-            int idPrestamo = 0;
             Query q = em.createQuery("SELECT p.id FROM Prestamo p where p.idLibro = :idLibro");
             q.setParameter("idLibro", libro);
             List<Integer> list = q.getResultList();
@@ -145,7 +144,7 @@ public class PrestamoDAOImpl implements PrestamoDAO {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return 9999;
+            return -1;
         }
     }
 

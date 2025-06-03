@@ -5,9 +5,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import model.database.dao.UsuarioDAO;
 import model.dto.Usuario;
-import utils.JPAUtil;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
