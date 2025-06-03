@@ -1,8 +1,8 @@
 package model.database.daoimpl;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import model.database.dao.PrestamoDAO;
 import model.dto.Libro;
 import model.dto.Prestamo;
@@ -54,7 +54,7 @@ public class PrestamoDAOImpl implements PrestamoDAO {
     @Override
     public List<Prestamo> read() {
         try {
-            Query q = em.createQuery("SELECT p FROM Prestamo p Order by idLibro.nombre");
+            Query q = em.createQuery("SELECT p FROM Prestamo p Order by p.idLibro.nombre");
             return q.getResultList();
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,14 +1,12 @@
 package model.database.daoimpl;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import model.database.dao.LibroDAO;
 import model.dto.Categoria;
 import model.dto.Libro;
-import utils.JPAUtil;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package model.database.daoimpl;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import model.database.dao.UsuarioDAO;
 import model.dto.Usuario;
 import utils.JPAUtil;

@@ -1,6 +1,6 @@
 package model.dto;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.sql.Timestamp;
 

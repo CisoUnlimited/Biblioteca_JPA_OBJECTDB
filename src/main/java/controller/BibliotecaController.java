@@ -1,6 +1,6 @@
 package controller;
 
-import jakarta.persistence.EntityManager;
+import javax.persistence.EntityManager;
 import model.database.dao.CategoriaDAO;
 import model.database.dao.LibroDAO;
 import model.database.dao.PrestamoDAO;
