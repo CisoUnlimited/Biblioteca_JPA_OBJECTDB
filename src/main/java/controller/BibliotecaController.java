@@ -283,9 +283,11 @@ public class BibliotecaController {
         String autor = scanner.nextLine();
         System.out.print("Editorial: ");
         String editorial = scanner.nextLine();
+        consultarCategorias();
         System.out.print("Categoría (ID): ");
         int categoriaID = scanner.nextInt();
         while (!categoriaDAO.exists(categoriaID)) {
+            consultarCategorias();
             System.out.println("El ID de categoría introducido no existe. Vuelva a intentarlo.");
             System.out.print("Categoría (ID): ");
             categoriaID = scanner.nextInt();
@@ -471,6 +473,7 @@ public class BibliotecaController {
 
         Libro libro = libroDAO.readOne(idLibro);
 
+        // Aquí falla
         if (!prestamoDAO.isBookAvailable(libro)) {
             System.out.println("El libro ya está prestado.");
             return;

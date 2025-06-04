@@ -54,6 +54,7 @@ public class PrestamoDAOImpl implements PrestamoDAO {
     @Override
     public List<Prestamo> read() {
         try {
+            // Esto falla
             Query q = em.createQuery("SELECT p FROM Prestamo p Order by p.idLibro.nombre");
             return q.getResultList();
         } catch (Exception e) {
@@ -109,6 +110,7 @@ public class PrestamoDAOImpl implements PrestamoDAO {
     @Override
     public boolean isBookAvailable(Libro libro) {
         try {
+            // Esto falla
             Query q = em.createQuery("SELECT p FROM Prestamo p where p.idLibro = :idLibro");
             q.setParameter("idLibro", libro);
             return q.getResultList().isEmpty();
@@ -121,6 +123,7 @@ public class PrestamoDAOImpl implements PrestamoDAO {
     @Override
     public boolean isUserAvailable(Usuario usuario) {
         try {
+            // Esto falla
             Query q = em.createQuery("SELECT p FROM Prestamo p where p.idUsuario = :idUsuario");
             q.setParameter("idUsuario", usuario);
             return q.getResultList().isEmpty();
