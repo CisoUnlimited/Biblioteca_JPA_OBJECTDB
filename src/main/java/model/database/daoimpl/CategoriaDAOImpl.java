@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import model.database.dao.CategoriaDAO;
-import model.dto.Categoria;
+import model.database.dao.Categoria;
 
 import java.util.ArrayList;
 import java.util.List;

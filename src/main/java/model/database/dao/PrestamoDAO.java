@@ -1,9 +1,5 @@
 package model.database.dao;
 
-import model.dto.Libro;
-import model.dto.Prestamo;
-import model.dto.Usuario;
-
 import java.util.List;
 
 /**

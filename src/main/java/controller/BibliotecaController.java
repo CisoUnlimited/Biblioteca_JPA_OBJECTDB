@@ -9,10 +9,10 @@ import model.database.daoimpl.CategoriaDAOImpl;
 import model.database.daoimpl.LibroDAOImpl;
 import model.database.daoimpl.PrestamoDAOImpl;
 import model.database.daoimpl.UsuarioDAOImpl;
-import model.dto.Categoria;
-import model.dto.Libro;
-import model.dto.Prestamo;
-import model.dto.Usuario;
+import model.database.dao.Categoria;
+import model.database.dao.Libro;
+import model.database.dao.Prestamo;
+import model.database.dao.Usuario;
 import utils.JPAUtil;
 import view.Formatters;
 import view.Menu;
@@ -509,6 +509,11 @@ public class BibliotecaController {
             System.out.print("ID del libro: ");
             int idLibro = scanner.nextInt();
             scanner.nextLine();
+            //
+            if (!libroDAO.exists(idLibro)) {
+                System.out.println("El id especificado no se encuentra registrado.");
+                return;
+            }
             Libro libro = libroDAO.readOne(idLibro);
             // Verifica si el libro está prestado
             int idPrestamo = prestamoDAO.getIdPrestamo(libro);

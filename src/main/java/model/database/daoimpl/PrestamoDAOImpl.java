@@ -2,13 +2,13 @@ package model.database.daoimpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
-import javax.persistence.metamodel.EntityType;
 
 import model.database.dao.PrestamoDAO;
-import model.dto.Libro;
-import model.dto.Prestamo;
-import model.dto.Usuario;
+import model.database.dao.Libro;
+import model.database.dao.Prestamo;
+import model.database.dao.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +57,9 @@ public class PrestamoDAOImpl implements PrestamoDAO {
             // Esto falla
             Query q = em.createQuery("SELECT p FROM Prestamo p Order by p.idLibro.nombre");
             return q.getResultList();
+        } catch (PersistenceException e) {
+            System.out.println(e.getMessage());
+            return new ArrayList<>();
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();
@@ -110,10 +113,12 @@ public class PrestamoDAOImpl implements PrestamoDAO {
     @Override
     public boolean isBookAvailable(Libro libro) {
         try {
-            // Esto falla
             Query q = em.createQuery("SELECT p FROM Prestamo p where p.idLibro = :idLibro");
             q.setParameter("idLibro", libro);
             return q.getResultList().isEmpty();
+        } catch (PersistenceException e) {
+            System.out.println(e.getMessage());
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -127,6 +132,9 @@ public class PrestamoDAOImpl implements PrestamoDAO {
             Query q = em.createQuery("SELECT p FROM Prestamo p where p.idUsuario = :idUsuario");
             q.setParameter("idUsuario", usuario);
             return q.getResultList().isEmpty();
+        } catch (PersistenceException e) {
+            System.out.println(e.getMessage());
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;

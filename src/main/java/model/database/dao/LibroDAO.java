@@ -1,8 +1,5 @@
 package model.database.dao;
 
-import model.dto.Categoria;
-import model.dto.Libro;
-
 import java.util.List;
 
 /**

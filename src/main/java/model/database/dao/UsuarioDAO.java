@@ -1,7 +1,5 @@
 package model.database.dao;
 
-import model.dto.Usuario;
-
 import java.util.List;
 
 /**
